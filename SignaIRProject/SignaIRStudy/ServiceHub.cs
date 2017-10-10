@@ -39,7 +39,7 @@ namespace SignaIRStudy
         /// </summary>
         /// <param name="length">用户名长度默认长度为4</param>
         /// <returns></returns>
-        public  static string GenerateRandomNum(int lenth = 4)
+        public  static string GenerateRandomNum(int length = 4)
         {
             var newRandom =new  StringBuilder(62);
             var rd = new Random();
