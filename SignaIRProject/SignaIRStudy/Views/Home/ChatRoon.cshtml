@@ -1,0 +1,35 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>酷炫聊天室</title>
+    <link rel="stylesheet" href="~/Content/ChatRoon.css" />
+</head>
+<body>
+    <div>
+        <p style="font-size:26px; font-weight:bolder; color:cornflowerblue;">Asp.net MVC中使用SignalR实现仿QQ聊天的即时通信功能</p>
+        <p style="font-size:20px; font-weight:bolder; ">作者：andyWqh</p>
+        <p style="font-size:20px; font-weight:bolder; ">邮箱：andyWqh@163.com</p>
+        <p style="font-size:20px; font-weight:bolder; ">欢迎关注微信：andysun199054</p>
+    </div>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <!--引用signair.js库-->
+    <script src="~/Scripts/jquery.signalR-2.2.2.min.js"></script>
+    <!--引用集线器自动生成的js库-->
+    <script src="~/signair/hubs"></script>
+    <!--引用用了一个Jquery插件：layer-->
+    <script src="~/Scripts/layer/layer.min.js"></script>
+    <script type="text/javascript">
+        //用户编号
+        var userid = "@Session["userId"]";
+        //用户名
+        var username = "@Session["userName"]";     
+    </script>
+    <script src="~/Scripts/FuncJs/ChatRoon.js"></script>
+</body>
+</html>
