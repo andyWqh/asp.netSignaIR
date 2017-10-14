@@ -5,7 +5,7 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignaIRStudy", "SignaIRStudy\SignaIRStudy.csproj", "{B8CD6F40-7BBA-4A26-AA1B-DD38D223FB8E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignaIRChatRoon", "SignaIRChatRoon\SignaIRChatRoon.csproj", "{A4F278F7-E391-429D-9489-47665F73605F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignaIRChatRoom", "SignaIRChatRoon\SignaIRChatRoom.csproj", "{A4F278F7-E391-429D-9489-47665F73605F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

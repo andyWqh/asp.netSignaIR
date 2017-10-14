@@ -8,7 +8,9 @@ namespace SignaIRChatRoon
     {
         public void Configuration(IAppBuilder app)
         {
-            ConfigureAuth(app);
+            //ConfigureAuth(app);
+            //启动时连接hub集线器
+            app.MapSignalR();
         }
     }
 }
