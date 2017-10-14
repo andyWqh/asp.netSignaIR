@@ -57,7 +57,7 @@
     },
     dom = [$(window), $(document), $('html'), $('body')],
     chatCore = {},
-    systemHub = $.connection.serviceHub,
+    systemHub = $.connection.chatRoonService,
     onlinenum = 0;//在线人数
 
     //主界面tab
