@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRNotify", "SignalRNot
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnockoutJSQuickStart", "KnockoutJSQuickStart\KnockoutJSQuickStart.csproj", "{137665AB-AE5B-4C24-BE74-74FE2969FF29}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPAWithKnockOutJs", "SPAWithKnockOutJs\SPAWithKnockOutJs.csproj", "{921C31D7-B3A7-46AF-8F0D-A407266926D2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{137665AB-AE5B-4C24-BE74-74FE2969FF29}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{137665AB-AE5B-4C24-BE74-74FE2969FF29}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{137665AB-AE5B-4C24-BE74-74FE2969FF29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{921C31D7-B3A7-46AF-8F0D-A407266926D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{921C31D7-B3A7-46AF-8F0D-A407266926D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{921C31D7-B3A7-46AF-8F0D-A407266926D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{921C31D7-B3A7-46AF-8F0D-A407266926D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
