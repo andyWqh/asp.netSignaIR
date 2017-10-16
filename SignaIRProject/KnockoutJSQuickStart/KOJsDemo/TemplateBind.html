@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>模板绑定</title>
+    <script src="../Scripts/knockout-3.4.0.js"></script>
+</head>
+<body>
+    <!--模板绑定，div的内容为personTemplate模板内的标签-->
+    <!--即最终生成如下标签-->
+    <!--<div>
+        <p>Name: <strong data-bind="text: name"></strong></p>
+        <p>Age:  <strong data-bind="text: age"></strong></p>
+    </div>-->
+    <!--<div data-bind="template:'templateDemo'"></div>-->
+
+    <!--<script id="templateDemo" type="text/html">
+        <p>Name: <strong data-bind="text: name"></strong></p>
+        <p>Age:  <strong data-bind="text: age"></strong></p>
+    </script>-->
+
+    <!--<script type="text/javascript">
+        var ViewModel = {
+            name: ko.observable('Tommy'),
+            age: ko.observable(28),
+            makeOlder: function () {
+                this.age(this.age() + 1);
+            }
+        };
+
+        ko.applyBindings(ViewModel);
+    </script>-->
+
+    <br />
+    <h2>Participants</h2>
+    Here are the participants:
+    <div data-bind="template: { name: 'persontemplate', foreach: people }"></div>
+
+    <script type="text/html" id="persontemplate">
+        <h3 data-bind="text: name"></h3>
+        <p>Age: <span data-bind="text: age"></span></p>
+    </script>
+
+    <script type="text/javascript">
+        function MyViewModel() {
+            this.people = [
+                { name: 'Tommy', age: 27 },
+                { name: 'Frank', age: 33 }
+            ];
+        }
+        ko.applyBindings(new MyViewModel());
+    </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>依赖跟踪</title>
+    <script src="../Scripts/knockout-3.4.0.js"></script>
+</head>
+<body>
+    <!--单向绑定view部分-->
+    <div>
+        <p>First Name:<strong data-bind="text: firstName"></strong></p>
+        <p>Last Name:<strong data-bind="text:lastName"></strong></p>
+        <p>First Name: <input data-bind="value: firstName" /></p>
+        <p>Last Name : <input data-bind="value: lastName" /></p>
+        <p>Full name:  <strong data-bind="text: fullName"></strong></p>
+        <button data-bind="click: capitalizeLastName">LastNameToUpper</button>
+    </div>
+    <script type="text/javascript">
+        //声明ViewModel 对象
+        function ViewModel() {
+            //双向绑定
+            this.firstName = ko.observable('Tommy');
+            this.lastName = ko.observable('andyWqh');
+            //依赖跟踪
+            this.fullName = ko.computed(function () {
+                return this.firstName() + '' + this.lastName();
+            }, this);
+
+            //通过代码该变obsercable的值,注册按钮事件将值转换成大写
+            this.capitalizeLastName = function () {
+                this.lastName(this.lastName().toUpperCase());
+            };
+        }
+        
+        ko.applyBindings(new ViewModel());
+    </script>
+</body>
+</html>

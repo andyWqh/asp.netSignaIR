@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignaIRSendImages", "SignaI
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRNotify", "SignalRNotify\SignalRNotify.csproj", "{48EF46DE-DBDA-473C-BEB8-418822715880}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnockoutJSQuickStart", "KnockoutJSQuickStart\KnockoutJSQuickStart.csproj", "{137665AB-AE5B-4C24-BE74-74FE2969FF29}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{48EF46DE-DBDA-473C-BEB8-418822715880}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48EF46DE-DBDA-473C-BEB8-418822715880}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{48EF46DE-DBDA-473C-BEB8-418822715880}.Release|Any CPU.Build.0 = Release|Any CPU
+		{137665AB-AE5B-4C24-BE74-74FE2969FF29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{137665AB-AE5B-4C24-BE74-74FE2969FF29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{137665AB-AE5B-4C24-BE74-74FE2969FF29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{137665AB-AE5B-4C24-BE74-74FE2969FF29}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

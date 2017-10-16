@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>单向绑定</title>
+    <script src="../Scripts/knockout-3.4.0.js"></script>
+</head>
+<body>
+    <!--单向绑定view部分-->
+    <div>
+        <p>First Name:<strong data-bind="text: firstName"></strong></p>
+        <p>Last Name:<strong data-bind="text:lastName"></strong></p>
+        <p>First Name: <input data-bind="value:firstName"/></p>
+        <p>Last Name : <input data-bind="value: lastName"/></p>
+    </div>
+
+    <!--这段脚本实际项目中应该放在对应的JS文件中，然后在html中通过Script标签来引用即可-->
+    <!--JS代码也就是业务逻辑部分，将业务逻辑与Html代码分割开，使得View代码更加简洁，这样后期也易于维护-->
+    <script type="text/javascript">
+        // ViewModel对象
+        function ViewModel() {
+            this.firstName = "Tommy";
+            this.lastName = "Li";
+        }
+
+        // 调用KO的applyBindings方法将View和ViewModel这两者关联
+        // 也就是相当于WPF中指定DataContext属性
+        ko.applyBindings(new ViewModel());
+    </script>
+
+
+
+</body>
+</html>

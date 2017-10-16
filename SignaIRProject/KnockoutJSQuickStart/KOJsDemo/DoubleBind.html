@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>双向绑定</title>
+    <script src="../Scripts/knockout-3.4.0.js"></script>
+</head>
+<body>
+    <!--单向绑定view部分-->
+    <div>
+        <p>First Name:<strong data-bind="text: firstName"></strong></p>
+        <p>Last Name:<strong data-bind="text:lastName"></strong></p>
+        <p>First Name: <input data-bind="value:firstName" /></p>
+        <p>Last Name : <input data-bind="value: lastName" /></p>
+    </div>
+    <script type="text/javascript">
+        //ViewModel对象
+        function ViewModel() {
+            //进行双向绑定时。需通过ko.observable函数实现
+            this.firstName = ko.observable('Tommy');
+            this.lastName = ko.observable('AndyWqh');
+        }
+        //调用Ko的applyBindings方法将view与ViewModel两者关联
+        ko.applyBindings(new ViewModel());
+    </script>
+</body>
+</html>
