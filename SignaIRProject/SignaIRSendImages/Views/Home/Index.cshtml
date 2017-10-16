@@ -1,9 +1,15 @@
-﻿<html>
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>使用SignalR实现发送图片</title>
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/fileinput.min.css" rel="stylesheet" media="all" type="text/css" />
+    <link href="/Content/bootstrap.min.css" rel="stylesheet">
+    <link href="/Content/bootstrap-fileinput/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <div class="container">
@@ -17,11 +23,8 @@
         <input type="hidden" id="displayname" />
         <ul id="discussion"></ul>
     </div>
-
-    <script src="~/Scripts/jquery-1.10.2.min.js" type="text/javascript"></script>
-    <!--引用signair.js库-->
-    <script src="~/Scripts/jquery.signalR-2.2.2.min.js"></script>
-    <!--引用自动生成的SignalR 集线器(Hub)脚本.在运行的时候在浏览器的Source下可看到 -->
+    <script type="text/javascript" src="~/Scripts/jquery-2.2.2.min.js"></script>
+    <script src="~/Scripts/jquery.signalR-2.2.0.min.js"></script>
     <script src="~/signalr/hubs"></script>
     <script src="/Scripts/fileinput.js" type="text/javascript"></script>
     <script src="/Scripts/bootstrap.min.js" type="text/javascript"></script>
@@ -30,7 +33,7 @@
             var userName = '@Session["username"]';
             $('#username').html(userName);
             // 引用自动生成的集线器代理
-            var chat = $.connection.serviceHub;
+            var chat = $.connection.chatHub;
             // 定义服务器端调用的客户端sendMessage来显示新消息
 
             chat.client.sendMessage = function (name, message) {
@@ -41,7 +44,7 @@
 
             chat.client.receiveImage = function (name, base64) {
                 // 向页面添加消息
-                $('#discussion').append('<image class = "file-preview-image" style="width:auto;height:100px;" src=' + base64
+                $('#discussion').append('<image style="width:auto;height:100px;" src=' + base64
                     + '/>');
             };
 
@@ -62,7 +65,7 @@
                 maxImageWidth: 700,
                 maxImageHeight: 700,
                 resizePreference: 'height',
-                maxFileCount: 1,
+                maxFileCount: 5,
                 resizeImage: true
             });
 
@@ -93,5 +96,6 @@
         return encodedValue;
     }
     </script>
+
 </body>
 </html>
