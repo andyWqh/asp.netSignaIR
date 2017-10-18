@@ -19,7 +19,7 @@ namespace SPAWithKnockOutJs
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
+                defaults: new {id = RouteParameter.Optional }
             );
 
             // 使得序列化使用驼峰式大小写风格序列化属性

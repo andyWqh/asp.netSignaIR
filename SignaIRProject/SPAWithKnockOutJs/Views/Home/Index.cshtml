@@ -1,31 +1,90 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "简单任务管理系统";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+<div id="list" data-bind="if:canCreate">
+    <h2>TasksList</h2>
+    <div class="table-responsive">
+        <table class='table table-striped'>
+            <thead>
+                <tr>
+                    <th>编号</th>
+                    <th>名称</th>
+                    <th>描述</th>
+                    <th>负责人</th>
+                    <th>创建时间</th>
+                    <th>完成时间</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach:tasks">
+                <tr>
+                    <td data-bind="text:taskId"></td>
+                    <td><a data-bind="text:taskName,click:handleCreateOrUpdate"></a></td>
+                    <td data-bind="text:description"></td>
+                    <td data-bind="text:owner"></td>
+                    <td data-bind="text:createTime"></td>
+                    <td data-bind="text:finishTime"></td>
+                    <td data-bind="text:state"></td>
+                    <td><a class="btn btn-xs btn-primary" data-bind="click:remove" href="javascript:void(0)">Remove</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-sm-4">
+        <a href="javascript:void(0)" data-bind="click:function(data,event){setTaskList('all')}">All</a>|
+        <a href="javascript:void(0)" data-bind="click:function(data,event){setTaskList('actived')}">Actived</a>|
+        <a href="javascript:void(0)" data-bind="click:function(data,event){setTaskList('completed')}">Completed</a>
+    </div>
+    <div class="col-sm-2 col-sm-offset-6">
+        <a href="javascript:void(0)" data-bind="click: handleCreateOrUpdate">添加任务</a>
+    </div>
 </div>
+<div id="create" style="visibility:hidden">
+    <h2>添加任务</h2>
+    <br />
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label for="taskName" class="col-sm-2 control-label">名称</label>
+            <div class="col-sm-10">
+                <input type="text" data-bind="value:taskName" class="form-control" id="taskName" name="taskName" placeholder="名称" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="taskDesc" class="col-sm-2 control-label">描述</label>
+            <div class="col-sm-10">
+                <textarea class="form-control" data-bind="value: description" rows="3" id="taskDesc" name="taskDesc" placeholder="描述"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="taskOwner" class="col-sm-2 control-label">负责人 *</label>
+            <div class="col-sm-10">
+                <input class="form-control" id="taskOwner" name="taskOwner" data-bind="value: owner" placeholder="负责人">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="taskFinish" class="col-sm-2 control-label">预计完成时间 *</label>
+            <div class="col-sm-10">
+                <input class="form-control datepicker" id="taskFinish" data-bind="value: finishTime" name="taskFinish">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="taskOwner" class="col-sm-2 control-label">状态 *</label>
+            <div class="col-sm-10">
+                <select id="taskState" class="form-control" data-bind="value: state">
+                    <option>Active</option>
+                    <option>Completed</option>
+                </select>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button class="btn btn-primary" data-bind="click:handleSaveClick">Save</button>
+                <button data-bind="click: handleBackClick" class="btn btn-primary">Back</button>
+            </div>
+        </div>
     </div>
 </div>

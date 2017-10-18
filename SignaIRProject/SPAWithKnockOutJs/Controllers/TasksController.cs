@@ -12,10 +12,11 @@ namespace SPAWithKnockOutJs.Controllers
     /// <summary>
     /// Task WebAPI提供数据服务
     /// </summary>
-    public class TaskController : ApiController
+    public class TasksController : ApiController
     {
         private readonly TaskRepository _taskRepository = TaskRepository.Current;
 
+        
         public IEnumerable<Task> GetAll()
         {
             return _taskRepository.GetAll().OrderBy(m => m.TaskId);
@@ -35,11 +36,12 @@ namespace SPAWithKnockOutJs.Controllers
             return item;
         }
 
-        [Route("api/tasks/GetByState")]
-        public IEnumerable<Task> GetByState(string taskState)
+        //[HttpGet]
+        //[Route("api/tasks/GetByState")]
+        public IEnumerable<Task> GetByState(string state)
         {
             IEnumerable<Task> results = new List<Task>();
-            switch (taskState)
+            switch (state)
             {
                 case "":
                 case "all":
@@ -47,12 +49,12 @@ namespace SPAWithKnockOutJs.Controllers
                         results = _taskRepository.GetAll();
                         break;
                     }
-                case"Active":
+                case"actived":
                     {
                         results = _taskRepository.GetAll().Where(m => m.State == TaskState.Active);
                         break;
                     }
-                case "Completed":
+                case "completed":
                     {
                         results = _taskRepository.GetAll().Where(m => m.State == TaskState.Completed);
                         break;
@@ -69,22 +71,21 @@ namespace SPAWithKnockOutJs.Controllers
             return _taskRepository.Add(item);
         }
 
-        [HttpPut]
-        public void Put(Task item)
+        public void PutUpdate(Task item)
         {
-            if(_taskRepository.Update(item))
+            if(!_taskRepository.Update(item))
             {
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             }
         }
 
-        public void  Delete(int taskId)
+        public void  Delete(int id)
         {
-            if(taskId <= 0)
+            if (id <= 0)
             {
                 throw new HttpResponseException(HttpStatusCode.PreconditionFailed);
             }
-            _taskRepository.Remove(taskId);
+            _taskRepository.Remove(id);
         }
     }
 }
